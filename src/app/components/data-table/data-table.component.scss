@@ -1,0 +1,41 @@
+$column-spacing: 1rem;    // For easier updating later
+table { width: 100%; }    // Expands the template's parent element
+
+/* -------------------------- STRUCTURAL PROPERTIES ------------------------- */
+// STYLES APPLIED TO BOTH TABLE-ROWS
+tr {
+    width: 100%;
+    height: 2.5rem;         // Emphasize the header row more
+    display: flex;          // Spread header row
+    align-items: center;    // WITHOUT losing vertical text centering
+  
+    // Enclosed Cells
+    th, td {
+      cursor: pointer;
+      text-align: center;
+  
+      // Solves issue of growing into parent wrappers
+      flex-grow: 1;
+      flex-shrink: 1;
+      width: 100%;
+  
+    //   // How the $column-spacing var we created acts as "column" spacing: math.
+    //   margin-left: $column-spacing / 2;
+    //   margin-right: $column-spacing / 2;
+    //   &:first-child { margin-left: none; }    // Removes left margin from very left column
+    //   &:last-child { margin-right: none; }    // Removes right margin from very right column
+    }
+  }
+
+  thead tr th {
+    background-color: rgb(43, 43, 43);
+    color: white;
+  }
+
+  tbody {
+    tr:nth-child(even) {
+        td {
+            background-color: rgb(195, 195, 195);
+        }
+    }
+  }

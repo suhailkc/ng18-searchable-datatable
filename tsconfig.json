@@ -22,7 +22,8 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "resolveJsonModule": true, // To enable the app to read the data
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

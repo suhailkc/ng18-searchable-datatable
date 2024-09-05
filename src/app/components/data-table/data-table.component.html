@@ -1,0 +1,39 @@
+
+<!-- ⤵️  add Search field-->
+<div class="form-group mb-2 w-25">
+  <!--Notice the new [(ngModel)] that references the `searchText` variable-->
+  <input
+    [(ngModel)]="searchText"
+    placeholder="Search"
+    class="form-control"
+    type="text">
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Symbol</th>
+            <th>Ask Price</th>
+            <th>Count</th>
+            <th>Bid Price</th>
+            <th>Low Price</th>
+            <th>High Price</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <cdk-virtual-scroll-viewport
+        [itemSize]="itemSize"
+        [style.height]="viewportHeightPx + 'px' ">
+            @for(crypto of cryptocurrencies | filterAll:searchText ; track crypto ) {
+                <tr>
+                    <td>{{ crypto.symbol | uppercase }}</td> <!-- Angular's 'uppercase' pipe -->
+                    <td>{{ crypto.askPrice }}</td>
+                    <td>{{ crypto.count }}</td>
+                    <td>{{ crypto.bidPrice }}</td>
+                    <td>{{ crypto.lowPrice }}</td>
+                    <td>{{ crypto.highPrice }}</td>
+                </tr>
+            }
+        </cdk-virtual-scroll-viewport>
+    </tbody>
+</table>
